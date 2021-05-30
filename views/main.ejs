@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/main">Dashboard</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="/issueBooks">Issue Books</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="/returnBooks">Return Books</a>
+    </li>
+    <%if(user === 'admin') { %>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="/admin">Moderate</a>
+    </li>
+    <% } %>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+    </li>
+  </ul>
+  <%
+  if(result!=undefined){
+  var i=1;
+  result.forEach(function(data){
+  %>
+  <div class="alert alert-danger" role="alert">
+    Please return '<%=data.book_name%>'
+  </div>
+  <%  i++; }) %>
+  <% } else{ %>
+  <% } %>
+  </body>
+</html>
